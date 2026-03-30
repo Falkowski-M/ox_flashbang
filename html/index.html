@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flashbang</title>
+</head>
+<body>
+    <script>
+        window.addEventListener('message', function(event) {
+            if (event.data.transactionType === 'playSound') {
+                var audio = new Audio(`sounds/${event.data.transactionFile}.ogg`);
+                audio.volume = event.data.transactionVolume;
+                audio.play();
+                console.log('gram dzwiek');
+            }
+        });
+    </script>
+</body>
+</html>
